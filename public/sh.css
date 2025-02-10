@@ -1,0 +1,320 @@
+/*
+ *  tf-org - www.thomasfoster.org
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+    --accent-color: #BB252F;
+    --primary-color: #FEFEFE;
+    --secondary-color: #AAC;
+    --margin: 16px;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    font-size: 16pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    margin: 0;
+    padding: 0;
+    background: #161820;
+    color: var(--primary-color);
+
+    /* Keep the entire content centered in the window. */
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: var(--margin);
+    padding-top: 100px;
+}
+
+.title {
+    font-size: 32px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: right;
+}
+
+.empty {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 600px;
+    padding-left: var(--margin);
+    margin-bottom: var(--margin);
+    border-left: 1px solid #333;
+    position: relative;
+}
+
+.page-title {
+    font-size: 48px;
+    margin: 0 0 1.5rem;
+}
+
+.heading {
+    font-size: 32px;
+    margin: 32px 0 1.5rem;
+}
+
+.section {
+    font-size: 24px;
+    color: var(--secondary-color);
+    margin: 36px 0 12px;
+}
+
+/* Nav */
+
+.nav-menu {
+    display: block;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: sticky; /* Make it sticky */
+    top: 0;          /* Stick to the top of the viewport */
+    align-self: start;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: var(--margin);
+    text-align: right;
+}
+
+nav ul li {
+    padding-bottom: 8px;
+}
+
+.nav-section {
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+nav a.current {
+    font-weight: bold;
+    color: #0F0;
+}
+
+/* Nav Buttons */
+
+.nav-button {
+    border: 0px;
+    width: 45px;
+    color: #fff;
+    font-size: 1.25em;
+    padding: 0;
+    margin-bottom: var(--margin);
+}
+
+#nav-open {
+    display: none;
+}
+
+#nav-close {
+    display: none;
+}
+
+/* ---------- */
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.photo {
+    width: 75%;
+}
+
+.lilypond-img {
+    background-color: white; /* Add a white background */
+    padding: 10px;          /* Add space around the image */
+    border-radius: 5px;     /* Optional: Add rounded corners */
+    display: inline-block;  /* Ensure the padding surrounds the image properly */
+}
+
+p > a:has(img[alt="[image of music]"]) {
+    pointer-events: none; /* Disable clicking */
+    cursor: default;      /* Change cursor to indicate non-clickable */
+}
+
+.footer {
+    font-size: 0.85em;
+    color: var(--secondary-color);
+    margin: 48px 0 0;
+}
+
+tr.pad td {
+    padding-bottom: 8px;
+}
+
+/* Links */
+
+a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--secondary-color);
+    text-decoration-style: dotted;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+nav a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* ------ */
+
+p {
+    margin: 0 0 1rem;
+}
+
+table {
+    margin-bottom: 16px;
+}
+
+td {
+    padding: 0 12px 0;
+}
+
+td.degree {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.color-first-col td:first-child {
+    color: var(--secondary-color);
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 20px;
+        gap: 0px;
+    }
+
+    .title, .content {
+        grid-column: 1 / 2;
+    }
+
+    .title {
+        grid-row: 1 / 2;
+    }
+
+    .photo {
+        width: 100%;
+    }
+    
+    #nav-open, #nav-close {
+        display: block;
+        justify-self: end;
+        position: relative;
+        background: none;
+    }
+
+    #nav-open:hover, #nav-close:hover {
+        color: var(--secondary-color);
+    }
+
+    #nav-menu {
+        position: fixed;
+        display: none; /* Hidden by default */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        padding: 32px;
+        box-sizing: border-box;
+    }
+
+    #nav-menu.open {
+        display: block;
+    }
+
+    .content {
+        grid-row: 5 / 6;
+        padding-top: var(--margin);
+        padding-left: 0;
+        border-top: 1px solid #333;
+        border-left: 0px;
+        width: auto;
+    }
+}
+
+/* Form */
+
+textarea {
+    height: 150px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+    background-color: #242028;
+    border: 1px solid #303030;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--primary-color);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus,
+textarea:focus {
+    background-color: #262230;
+}
+
+.option-text {
+    font-size: 14px;
+}
+
+button[type='submit'] {
+    color: black;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+}
+
+button[type='submit']:hover {
+    filter: brightness(85%);
+}
+
+.url-field {
+    display: none;
+}

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# N.B. Make sure to build/cpp first
+
+# Make a temporary directory and move catalogue there
+# so lilypond-book doesn't complain about overwriting the file.
+mkdir -p public/temp
+mv public/catalogue.html public/temp
+mv public/works.html public/temp
+
+# Process catalogue, putting it back in the right place.
+lilypond-book -f html -o public public/temp/catalogue.html
+lilypond-book -f html -o public public/temp/works.html
+rm -rf public/temp
+
+open -a Safari # switch focus
+

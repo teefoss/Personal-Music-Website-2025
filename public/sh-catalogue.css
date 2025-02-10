@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and borders are included in element width/height */
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    font-size: 16pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color: #333; /* Dark gray text is easier to read than pure black */
+    background-color: #FFF; /* Soft background color */
+
+    width: 900px;
+    margin: 0 auto;
+    margin-bottom: 64px;
+}
+
+h1, h2, h3 {
+    color: #999;
+}
+
+h2, h3 {
+    margin-top: 64px;
+    margin-bottom: 1rem;
+}
+
+img {
+    all: unset; /* Undo all lilypond's generated styles! Ugh! */
+    float: right;
+    max-width: 90%;
+}
+
+/* Disable lilypond's generated links! Ugh! */
+p a {
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.container {
+    text-align: center; /* Keeps the text left-aligned */
+    padding: 1rem; /* Adds some space inside the container */
+    display: flex;
+    flex-direction: column;
+/*    justify-content: center;*/
+
+    width: 100%;
+}
+
+.entry {
+    text-align: left;
+    margin-bottom: 1rem; /* Adds space between entries */
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.catalogue-number {
+    font-style: normal;
+    font-size: 85%;
+    font-family: monospace;
+    margin-right: 1rem;
+    color: #999;
+}
+
+.work-title {
+    text-decoration: underline; /* Underlines the work title */
+    text-underline-offset: 7px;
+    text-decoration-thickness: 1px;
+}
+
+.instrumentation {
+    margin-left: 0.5rem; /* Adds space between title and instrumentation */
+}
+
+.score-image {
+    justify-content: space-between;
+    margin-left: auto; /* Pushes the image to the right */
+    width: auto; /* Keeps the image's original width */
+    height: auto;
+}
+
+p.alert {
+    font-size: 1.2em; /* Slightly larger than normal */
+    color: red;
+    border: 2px solid red;
+    padding: 5px;
+    display: inline-block; /* Keeps box tight around text */
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 768px) {
+    body {
+        width: 90%; /* Ensures it scales down on smaller screens */
+    }
+}

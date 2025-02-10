@@ -1,0 +1,3 @@
+#!/bin/bash
+rm ~/web/tf-org/public/*.html
+rm ~/web/tf-org/public/*.dep

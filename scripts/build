@@ -1,0 +1,20 @@
+#!/bin/bash
+# run from project root!
+
+set -e
+
+mkdir -p public
+mkdir -p public/temp
+
+# -x c      Specify language as C. (Makes it work with .html extension.)
+# -E        Run the preprocessor only.
+# sed ...   Remove all metadata lines preprocessor inserts in output file.
+
+for file in *.html;
+do
+    clang -x c -E -Iinclude -Wno-invalid-pp-token "$file" | sed '/^#/d' > "public/temp/$file"
+    lilypond-book -l WARN --lily-loglevel=WARNING -f html -o public "public/temp/$file"
+done
+
+rm -rf public/temp
+open -a Safari # switch focus
