@@ -106,7 +106,7 @@ nav ul li {
 
 nav a.current {
     font-weight: bold;
-    color: #0F0;
+    color: var(--primary-color);
 }
 
 /* Nav Buttons */
