@@ -69,9 +69,22 @@ body {
 }
 
 .section {
-    font-size: 24px;
+    font-size: 28px;
     color: var(--secondary-color);
     margin: 36px 0 12px;
+}
+
+.para {
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 0.15rem;
+/*    color: var(--secondary-color);*/
+    color: #888;
+    margin-right: 1rem;
+}
+
+.italic {
+    font-style: italic;
 }
 
 /* Nav */
@@ -192,11 +205,28 @@ table {
     margin-bottom: 16px;
 }
 
+td:first-child,
+th:first-child {
+    white-space: nowrap;
+}
+
 td {
     padding: 0 12px 0;
 }
 
 td.degree {
+    font-weight: bold;
+}
+
+td.church {
+    font-weight: bold;
+}
+
+td.town {
+    font-style: italic;
+}
+
+span.church {
     font-weight: bold;
 }
 
